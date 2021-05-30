@@ -65,7 +65,7 @@ class PPLMGeneration(GenerationMixin):
         # components using in perturb_past
         self.loss_fn = torch.nn.CrossEntropyLoss(reduction='sum')  # you need to set your reduction as 'sum'
                                                                    # because you don't update your model parameter, you update your Key Value matrix 
-                                                                   # which is very dynamic to number of return samples (batch size)
+                                                                   # which is very dynamic to number of return samples (batch size)                                                          
         self.wte = self.model.resize_token_embeddings()
         
     
@@ -556,7 +556,7 @@ class PPLMGeneration(GenerationMixin):
 if __name__ == "__main__":
     from transformers.file_utils import cached_path
     
-    # set_seed(42)
+    set_seed(42)
     
     device = torch.device('cuda:1')
     torch.cuda.set_device(device)
